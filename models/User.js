@@ -24,7 +24,7 @@ const UserSchema = new mongoose.Schema({
 // using old function because we need access to `this`
 // We run this before we save the user
 // next says once done execute next function
-UserSchema.pre("save", function (next) {
+  UserSchema.pre("save", function (next) {
   // do we need the hash?
   // if our password has been modified there is no need to hash the password
   // we only want to hash the password if it is plain text

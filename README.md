@@ -1,30 +1,31 @@
-# MERN with PassportJS, React with hooks, JWT
-# Technologies Used Within Series:
-* MongoDB(Mongoose ORM) - Database
-* Express - Web Framework
-* React - Client Side UI
-* NodeJS - Server
-* PassportJS - Authentication Middleware
-* JWT(JSON WEB TOKENS) - For Authorization
+# Passport JS
+`$ npm i passport passport-local`
 
-# Mongoose
-## Install dependencies
-`$ npm i bcryptjs`
+## What is Local Strategy?
+* It will used to authenticate against a Database using your username and password
 
-## Summary
-* We set up:
-  - The database portion of our MERN Stack application
-  - We use MongooseJS which is an ODM which allows us to work with MongoDB alot easier
-    + [Difference between ORM and ODM?](https://medium.com/@julianam.tyler/what-is-the-difference-between-odm-and-orm-267bbb7778b0)
-  - The `User` and `Todo` Mongoose Models
-  - How we can go about `hashing` the password of the **user** before saving unto the database using `bcryptjs`
-  - Test if code works manually (since we have no UI)
+## What is a JWT token?
+* https://jwt.io/
+* Header
+* Payload (our data)
+  - sub (usually tied to id of user)
+  - name (you can make your own claims)
+  - iat (when was this token created)
+  - exp (another common property is how long do you want this token to last)
+* Verify Signature
+  - This is where the magic happens
+   + The signature is made up of the header
+     - the algo we told it to use
+     - the signature is based on the header and the payload, if a hacker modify anthing within the JWT token it will invalidate it (that's what makes it secure)
 
+### Is JWT encryption?
+* No (we can see everything within that JWT)
+* So never put sensative info in the payload
+* Anyone who has access to JWT can read it
 
-## Create test user in Database
-`$ npm run dev`
+## Why are we using JWT tokens?
+* For authorization
+* Once the user is logged in each subsequent request is going to include the JWT token
 
-## Note
-* Blow up react git repo (just use one)
-
-`$ cd client && rm -rf .git`
+### Install jwt for passport
+`$ npm i passport-jwt`
