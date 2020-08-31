@@ -1,3 +1,12 @@
+# MERN with PassportJS, React with hooks, JWT
+# Technologies Used Within Series:
+* MongoDB(Mongoose ORM) - Database
+* Express - Web Framework
+* React - Client Side UI
+* NodeJS - Server
+* PassportJS - Authentication Middleware
+* JWT(JSON WEB TOKENS) - For Authorization
+
 # Mongoose
 ## Install dependencies
 `$ npm i bcryptjs`
