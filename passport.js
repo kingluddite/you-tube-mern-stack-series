@@ -3,7 +3,7 @@ const passport = require("passport");
 // local strategy is how we are going to be authenticating against
 //  and we are just using a username and password against a mongoDB
 const LocalStrategy = require("passport-local").Strategy;
-const JwtStrategy = require("passport-jwt");
+const JwtStrategy = require("passport-jwt").Strategy;
 // we are going to be authenticating against our User model
 const User = require("./models/User");
 

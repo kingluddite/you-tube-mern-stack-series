@@ -13,25 +13,9 @@ mongoose.connect(
   }
 );
 
-// hack way to test if our User model is working
-const User = require("./models/User");
-
-// create a test user
-const userInput = {
-  username: "test@example.com",
-  password: "a123456",
-  role: "admin",
-};
-
-const user = new User(userInput);
-// data (but in mongodb it is called a document);
-user.save((err, document) => {
-  if (err) {
-    console.log(err);
-  } else {
-    console.log(document);
-  }
-});
+// routes
+const userRouter = require("./routes/User");
+app.use("/user", userRouter);
 
 app.listen(5000, () => {
   console.log("Express server started");
