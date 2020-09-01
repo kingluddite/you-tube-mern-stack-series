@@ -3,7 +3,7 @@ const app = express();
 const cookieParser = require("cookie-parser");
 const mongoose = require("mongoose");
 app.use(cookieParser());
-app.unsubscribe(express.json());
+app.use(express.json());
 
 mongoose.connect(
   "mongodb://localhost:27017/mernauth",
