@@ -41,3 +41,4 @@
 ## Troubleshooting
 * If you get this error `fatal: in unpopulated submodule 'client'` it most likely means you never deleted the `.git` inside your create react app
 * Go inside `client` and `rm -rf *.git` to delete the submodule (if you have a git inside a git this creates a submodule - for our case we will make life easy and delete the submodule)
+* Also make sure you are in the root of your app when you are adding and committing to git
