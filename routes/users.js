@@ -104,7 +104,7 @@ userRouter.get(
 
 // we need to use our Passport middleware here
 userRouter.post(
-  "/todo",
+  "/todos",
   passport.authenticate("jwt", { session: false }),
   (req, res) => {
     const todo = new Todo(req.body);
