@@ -4,7 +4,7 @@
 // we are using createContext so we import that
 import React, { createContext, useState, useEffect } from "react";
 // we import the file with our fetch API auth endpoints
-import AuthService from "../Services/AuthService";
+import AuthService from "../services/AuthService";
 
 // this is how we create our context
 // we also export it so we can also use it outside of this file

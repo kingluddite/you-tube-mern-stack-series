@@ -1,26 +1,20 @@
-# Navbar Component and React Router
-* Add bootstrap to `index.html`
-* [docs](https://getbootstrap.com/docs/4.5/getting-started/introduction/)
+# Login and Register components
+## Center page
+`index.html`
 
-`public/index.html`
 ```
 // MORE CODE
 
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+ <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root" class="container"></div>
 // MORE CODE
 ```
 
-## Navbar
-* Link from react-router-dom
-* AuthService
-* AuthContext
-* Install `react-router-dom` in client
-
-`$ npm i react-router-dom`
-
-* Search for Navbar on bootstrap site
-* class to className
-* A different navbar if we are authenticated or not
-
-## Test
-* The home page should take you to the Home component (if the router is working)
+# Register
+* enter username, password and role
+* after 2 seconds you will be taken to login screen
+* Enter username and password and you will be redirected to login screen
+* You will see that an access_token is created in a cookie (check the application in chrome dev tools to see it)
+* The value of the access_token is a JWT
+* Click `logout` and it will clear the cookie/jwt access_token

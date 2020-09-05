@@ -17,11 +17,21 @@ export default {
       })
         // we use `.then` because this is a promise
         // this will return a response which we are going to return
-        .then((res) => res.json())
-        // the above will also return a response so we chain on another then for another promise
-        // and we should get the data that is parsed
-        // and we are just going to return that data
-        .then((data) => data)
+        .then((res) => {
+          if (res.status !== 401) {
+            // passport automatically sends a 401 status if we are not authenticated (if we use passport middleware - so we'll write our response client side)
+            // if we get a 401 error status code that means we already wrote our custom response here
+            return res.json().then((data) => data);
+          } else {
+            // passport is sending a 401 status code so we'll build out the reponse
+            // user is not authenticated
+            // isAuthenticated is false because we get a 401 code
+            // and we set the username and role to empty strings
+            // note - we will use the contextAPI when we call this function
+            // note - the contextAPI is like a global state for your React app
+            return { isAuthenticated: false, user: { username: "", role: "" } };
+          }
+        })
     );
   },
   // when we register a user we pass in the user (the user they want to create)
