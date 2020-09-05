@@ -7,6 +7,9 @@ import Home from "./components/Home";
 import Login from "./components/Login";
 import Register from "./components/Register";
 import Todos from "./components/Todos";
+import Admin from "./components/Admin";
+import PrivateRoute from "./hocs/PrivateRoute";
+import UnPrivateRoute from "./hocs/UnPrivateRoute";
 
 function App() {
   return (
@@ -15,9 +18,10 @@ function App() {
       {/* why `exact` */}
       {/* react router uses partial pattern matching if I have another route that begins with `/` it will render out both routes */}
       <Route exact path="/" component={Home} />
-      <Route path="/login" component={Login} />
-      <Route path="/register" component={Register} />
-      <Route path="/todos" component={Todos} />
+      <UnPrivateRoute path="/login" component={Login} />
+      <UnPrivateRoute path="/register" component={Register} />
+      <PrivateRoute path="/todos" roles={["user", "admin"]} component={Todos} />
+      <PrivateRoute path="/admin" roles={["admin"]} component={Admin} />
     </Router>
   );
 }
